@@ -3,7 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Purpose  - As a User need to enter a valid Email Adress
+ * Purpose  - As a User need to enter a valid Mobile Number
  * @author  - N Sreekanth
  * @version - 16.0
  * @since   - 2021-10-02
@@ -46,6 +46,16 @@ public class UserRegistration {
         String regex = "^[0-9]{2}\\s{1}[0-9]{10}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phoneNumber);
+        return matcher.matches();
+    }
+    
+    /*
+    Created a method to validate password with minimum 8 character
+    */
+    public boolean password(String password) {
+        String regex = "^[0-9a-zA-Z!,@#$&*().]{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
 }
