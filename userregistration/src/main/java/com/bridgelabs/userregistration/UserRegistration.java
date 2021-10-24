@@ -3,7 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Purpose  - As a User need to enter a valid password
+ * Purpose  -As a User need to enter a valid password with atleast one numeric number
  * @author  - N Sreekanth
  * @version - 16.0
  * @since   - 2021-10-02
@@ -64,6 +64,16 @@ public class UserRegistration {
     */
     public boolean passwordRule2(String password) {
         String regex = "^(?=.*[A-Z]){1}(?=.*[a-z]).{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+    
+    /*
+    Created a method to validate password with atleast one numeric value
+    */
+    public boolean passwordRule3(String password) {
+        String regex = "^(?=.*[A-Z]){1}(?=.*[a-z])(?=.*[0-9]).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
