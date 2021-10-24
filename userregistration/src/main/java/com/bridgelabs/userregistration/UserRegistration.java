@@ -3,7 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Purpose  - As a User need to enter a valid Mobile Number
+ * Purpose  - As a User need to enter a valid password
  * @author  - N Sreekanth
  * @version - 16.0
  * @since   - 2021-10-02
@@ -54,6 +54,16 @@ public class UserRegistration {
     */
     public boolean password(String password) {
         String regex = "^[0-9a-zA-Z!,@#$&*().]{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+    
+    /*
+    Created a method to validate password with atleast one upper case
+    */
+    public boolean passwordRule2(String password) {
+        String regex = "^(?=.*[A-Z]){1}(?=.*[a-z]).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
